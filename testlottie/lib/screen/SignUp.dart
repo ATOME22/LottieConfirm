@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:testlottie/screen/home.dart';
+import 'package:tracknotes/views/auth/Enseignants/Login.dart';
+import 'package:tracknotes/views/home.dart';
 
 class SignUpEnsei extends StatelessWidget {
   const SignUpEnsei({Key? key}) : super(key: key);
@@ -8,11 +9,17 @@ class SignUpEnsei extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Column(
         children: [
-          Expanded(
-            child: Container(
-              height: 300.0,
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 18.0),
+            child: const Text(
+              'Connexion',
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(
@@ -27,7 +34,7 @@ class SignUpEnsei extends StatelessWidget {
                         ),
                         fillColor: Colors.white10,
                         filled: true,
-                        hintText: 'Code Parents',
+                        hintText: 'Code ecole',
                         hintStyle:
                             TextStyle(fontFamily: 'poppins', fontSize: 20.0)),
                     cursorColor: Colors.white,
@@ -50,16 +57,32 @@ class SignUpEnsei extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 2,
+                  height: 8,
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 19),
+                  margin: const EdgeInsets.only(left: 150.0),
+                  child: InkWell(
+                    onTap: () {
+                      Get.to(
+                        const LoginEnseignants(),
+                      );
+                    },
+                    child: const Text(
+                      'Code Enseignants oublié ?',
+                      style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 17.0,
+                          color: Colors.white70),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 17),
                   width: 270,
-                  height: 60,
+                  height: 50,
                   child: RaisedButton(
                     onPressed: () {
-                      Get.to(
-                        const HomePage(),
+                      Get.to(const HomePage(),
                           duration: const Duration(milliseconds: 300),
                           transition: Transition.cupertino);
                     },
@@ -70,7 +93,7 @@ class SignUpEnsei extends StatelessWidget {
                     child: const Text(
                       'valider',
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 24,
                         fontFamily: 'Sans-serif',
                       ),
                     ),
